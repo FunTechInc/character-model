@@ -19,7 +19,7 @@ You may share and adapt them for non-commercial purposes, as long as you give cr
 
 > Funkun © FunTech Inc. — [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — https://github.com/FunTechInc/character-model
 
-For commercial use, please contact FunTech Inc. ([funtech.inc](https://funtech.inc/)).
+For commercial use, please contact FunTech Inc. at [info@funtech.inc](mailto:info@funtech.inc).
 
 The license covers the copyright in the model and images only. "FunTech" and its logos are trademarks of FunTech Inc.
 and are not licensed. The [usage guidelines](README.md#license) in the README are requests on top of the license.

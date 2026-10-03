@@ -1,0 +1,180 @@
+/* Funkun viewer — a quiet UI around a glossy character.
+   8 px grid · square corners · 1 px edges · hover changes colour only · Latin type with letter-spacing 0.
+   Panels are black, semi-transparent and blurred whatever the background, so they read the same on both. */
+:root {
+  --accent: #ff481b;
+  --ink: #fff;
+  --ink-2: rgba(255, 255, 255, 0.62);
+  --ink-3: rgba(255, 255, 255, 0.4);
+  --panel: rgba(12, 12, 14, 0.58);
+  --edge: rgba(255, 255, 255, 0.14);
+  --hover: rgba(255, 255, 255, 0.12);
+  --led: #3dff6a;
+  --bg-dark: #0b0b0d;
+  --bg-light: #e9e8e6;
+  --gutter: 24px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (max-width: 767px) { :root { --gutter: 16px; } }
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font: 13px/16px var(--font);
+  letter-spacing: 0;
+  color: var(--ink);
+  background: var(--bg-dark);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body[data-bg="light"] { background: var(--bg-light); }
+a { color: inherit; text-decoration: none; }
+
+/* ---------------------------------------------------------------- the model */
+model-viewer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+  outline: none;
+}
+.progress { position: absolute; inset: 0 0 auto; height: 2px; pointer-events: none; }
+.progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s linear, opacity 0.4s; }
+.progress.done span { opacity: 0; }
+
+/* ---------------------------------------------------------------- panels and buttons */
+.panel {
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--edge);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-width: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--edge);
+  border-radius: 0;
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn:hover { background: var(--hover); }
+.btn:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+.btn[aria-checked="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.group .btn { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.group .btn:hover { background: var(--hover); }
+.group .btn[aria-checked="true"] { background: var(--accent); }
+
+/* ---------------------------------------------------------------- header */
+.top {
+  position: fixed;
+  top: var(--gutter);
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  pointer-events: none;
+}
+.top > * { pointer-events: auto; }
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  height: 32px;
+  line-height: 32px;
+}
+.brand strong { font-size: 16px; font-weight: 600; }
+.brand span { color: var(--ink-2); }
+body[data-bg="light"] .brand { color: #0b0b0d; }
+body[data-bg="light"] .brand span { color: rgba(11, 11, 13, 0.6); }
+.links { display: flex; gap: 8px; }
+.menu { position: relative; }
+.dl {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+}
+.dl[hidden] { display: none; }
+.dl a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  height: 56px;
+  padding: 0 12px;
+  transition: background-color 0.15s;
+}
+.dl a + a { border-top: 1px solid var(--edge); }
+.dl a:hover { background: var(--hover); }
+.dl small { color: var(--ink-2); font-size: 12px; line-height: 16px; }
+
+/* ---------------------------------------------------------------- controls */
+.controls {
+  position: fixed;
+  left: var(--gutter);
+  bottom: var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  padding: 12px;
+  max-width: calc(100vw - 2 * var(--gutter));
+}
+.row { display: contents; }
+.label { color: var(--ink-2); line-height: 32px; white-space: nowrap; }
+.group { display: flex; flex-wrap: wrap; gap: 4px; }
+.faces .btn { width: 32px; padding: 0; }
+.faces svg { width: 18px; height: 18px; display: block; }
+.faces svg rect { fill: var(--led); }
+.faces .btn[aria-checked="true"] svg rect { fill: #fff; }
+.swatch { width: 32px; padding: 0; }
+.swatch i { display: block; width: 14px; height: 14px; border: 1px solid rgba(255, 255, 255, 0.5); }
+.swatch[data-bg="dark"] i { background: var(--bg-dark); }
+.swatch[data-bg="light"] i { background: var(--bg-light); }
+
+.ar { position: absolute; right: var(--gutter); bottom: var(--gutter); }
+
+.license {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  margin: 0;
+  line-height: 32px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+.license a { color: var(--ink-2); }
+.license a:hover { color: var(--ink); }
+body[data-bg="light"] .license { color: rgba(11, 11, 13, 0.45); }
+body[data-bg="light"] .license a { color: rgba(11, 11, 13, 0.7); }
+body[data-bg="light"] .license a:hover { color: #0b0b0d; }
+
+/* phones: the model above, the controls below it (nothing covers the character) */
+@media (max-width: 767px) {
+  body { display: flex; flex-direction: column; height: 100dvh; }
+  model-viewer { position: relative; inset: auto; flex: 1 1 auto; height: auto; min-height: 0; }
+  .brand span { display: none; }
+  .controls { position: static; margin: 0 var(--gutter); padding: 8px; grid-template-columns: 1fr; gap: 4px; max-width: none; }
+  .label { line-height: 16px; }
+  .row + .row .label { margin-top: 8px; }
+  .license { position: static; margin: 8px var(--gutter) calc(var(--gutter) - 8px + env(safe-area-inset-bottom)); line-height: 24px; }
+  .ar { bottom: 8px; }
+}
+
+/* ?ui=0: the model only (embeds, captures) */
+body.bare .top, body.bare .controls, body.bare .license, body.bare .ar { display: none; }
