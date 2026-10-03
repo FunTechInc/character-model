@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Funkun — 3D model | FunTech</title>
+  <meta name="description" content="Funkun, the FunTech character, as a glTF model. Turn it around, play its animations, switch its face, download it.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Funkun — 3D model">
+  <meta property="og:description" content="The FunTech character as a glTF model: 9 faces, 4 animations. CC BY-NC 4.0.">
+  <meta property="og:url" content="https://funtechinc.github.io/character-model/">
+  <meta property="og:image" content="https://funtechinc.github.io/character-model/media/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="viewer.css">
+  <!-- funkun_web.glb is meshopt-compressed: model-viewer loads this decoder (a classic script defining MeshoptDecoder) -->
+  <script>self.ModelViewerElement = { meshoptDecoderLocation: 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.25.0/meshopt_decoder.js' };</script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+  <script type="module" src="viewer.js"></script>
+</head>
+<body data-bg="dark">
+  <!-- The model is shown exactly as the file is: no material or light is added in code. -->
+  <model-viewer id="mv" src="models/funkun_web.glb" poster="media/poster.webp" alt="Funkun, the FunTech character: a glossy black sphere with a screen for a face, headphones, a visor and two orange sneakers"
+    camera-controls touch-action="pan-y" interaction-prompt="none" autoplay animation-name="Idle" animation-crossfade-duration="250"
+    camera-orbit="24deg 78deg 3.2m" camera-target="0m 0.44m 0m" field-of-view="26deg" min-camera-orbit="auto 8deg 0.8m" max-camera-orbit="auto 100deg 4.5m"
+    environment-image="studio.hdr" tone-mapping="neutral" exposure="1" shadow-intensity="1" shadow-softness="1"
+    ar ar-modes="webxr scene-viewer quick-look">
+    <div slot="progress-bar" class="progress" aria-hidden="true"><span></span></div>
+    <button slot="ar-button" class="btn ar" type="button">View in your space</button>
+  </model-viewer>
+
+  <header class="top">
+    <a class="brand" href="https://github.com/FunTechInc/character-model">
+      <strong>Funkun</strong><span>3D model by FunTech</span>
+    </a>
+    <nav class="links">
+      <a class="btn" href="https://github.com/FunTechInc/character-model">GitHub</a>
+      <div class="menu">
+        <button class="btn" type="button" id="dl-toggle" aria-expanded="false" aria-controls="dl">Download</button>
+        <div class="panel dl" id="dl" hidden>
+          <a href="models/funkun.glb" download><span>funkun.glb</span><small>Standard · 70k triangles · 3.0 MB</small></a>
+          <a href="models/funkun_web.glb" download><span>funkun_web.glb</span><small>Web · 30k triangles · 0.7 MB</small></a>
+          <a href="https://github.com/FunTechInc/character-model/releases/latest"><span>funkun_hd.glb</span><small>Full resolution · 956k triangles · 25 MB</small></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="controls panel" aria-label="Preview">
+    <div class="row">
+      <span class="label" id="anim-label">Animation</span>
+      <div class="group" id="anims" role="radiogroup" aria-labelledby="anim-label"></div>
+    </div>
+    <div class="row">
+      <span class="label" id="face-label">Face</span>
+      <div class="group faces" id="faces" role="radiogroup" aria-labelledby="face-label"></div>
+    </div>
+    <div class="row">
+      <span class="label" id="bg-label">Background</span>
+      <div class="group" id="bgs" role="radiogroup" aria-labelledby="bg-label">
+        <button class="btn swatch" type="button" role="radio" data-bg="dark" aria-label="Dark" title="Dark"><i></i></button>
+        <button class="btn swatch" type="button" role="radio" data-bg="light" aria-label="Light" title="Light"><i></i></button>
+      </div>
+    </div>
+  </section>
+
+  <p class="license"><a href="https://github.com/FunTechInc/character-model#license">CC BY-NC 4.0</a> · © FunTech Inc.</p>
+</body>
+</html>
