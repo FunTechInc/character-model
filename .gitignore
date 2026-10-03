@@ -1,0 +1,7 @@
+node_modules/
+# the in-house master model the build reads (not distributed)
+source/
+# build output that ships as a release asset, not in git
+dist/
+.DS_Store
+.claude/

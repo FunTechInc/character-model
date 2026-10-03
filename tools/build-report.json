@@ -1,0 +1,74 @@
+{
+  "version": "1.0.0",
+  "bounds": {
+    "min": [
+      -0.3626761734485626,
+      1.907213595386814e-9,
+      -0.3139029272788423
+    ],
+    "max": [
+      0.3626761734485626,
+      0.8823060106477999,
+      0.3014168615610257
+    ]
+  },
+  "frame": {
+    "floorShift": -0.031751817285339615,
+    "headY": 0.6012481827146604
+  },
+  "clips": [
+    {
+      "name": "Idle",
+      "duration": 6
+    },
+    {
+      "name": "Dance",
+      "duration": 1.6666666666666667
+    },
+    {
+      "name": "Run",
+      "duration": 0.3846153846153846
+    },
+    {
+      "name": "Jump",
+      "duration": 1.6
+    }
+  ],
+  "faces": [
+    "happy",
+    "open",
+    "blink",
+    "heart",
+    "star",
+    "dot",
+    "angry",
+    "sad",
+    "dead"
+  ],
+  "files": {
+    "hd": {
+      "file": "dist/funkun_hd.glb",
+      "bytes": 24963468,
+      "tris": 955900,
+      "verts": 493383,
+      "errors": 0,
+      "warnings": 0
+    },
+    "standard": {
+      "file": "models/funkun.glb",
+      "bytes": 3035784,
+      "tris": 70000,
+      "verts": 39828,
+      "errors": 0,
+      "warnings": 0
+    },
+    "web": {
+      "file": "models/funkun_web.glb",
+      "bytes": 718856,
+      "tris": 29996,
+      "verts": 18261,
+      "errors": 0,
+      "warnings": 0
+    }
+  }
+}
