@@ -93,7 +93,7 @@ root.setExtension('KHR_xmp_json_ld', xmp.createPacket()
   .setProperty('dc:source', REPO)
   .setProperty('xmpRights:Marked', true)
   .setProperty('xmpRights:WebStatement', LICENSE.url)
-  .setProperty('xmpRights:UsageTerms', alt(`${LICENSE.name} (${LICENSE.url}). Commercial use: contact FunTech Inc.`)));
+  .setProperty('xmpRights:UsageTerms', alt(`${LICENSE.name} (${LICENSE.url}). Commercial use: contact FunTech Inc., info@funtech.inc`)));
 await doc.transform(prune({ propertyTypes: [PropertyType.MATERIAL, PropertyType.TEXTURE, PropertyType.ACCESSOR], keepAttributes: true, keepExtras: true }));
 log(`common    ${root.listMaterials().length} materials · ${root.listTextures().length} textures · ${clips.map((c) => `${c.name} ${c.duration.toFixed(2)} s`).join(' · ')} · ${((Date.now() - t0) / 1000).toFixed(1)} s`);
 

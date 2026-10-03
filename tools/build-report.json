@@ -48,7 +48,7 @@
   "files": {
     "hd": {
       "file": "dist/funkun_hd.glb",
-      "bytes": 24963468,
+      "bytes": 24963484,
       "tris": 955900,
       "verts": 493383,
       "errors": 0,
@@ -56,7 +56,7 @@
     },
     "standard": {
       "file": "models/funkun.glb",
-      "bytes": 3035784,
+      "bytes": 3035804,
       "tris": 70000,
       "verts": 39828,
       "errors": 0,
@@ -64,7 +64,7 @@
     },
     "web": {
       "file": "models/funkun_web.glb",
-      "bytes": 718856,
+      "bytes": 718872,
       "tris": 29996,
       "verts": 18261,
       "errors": 0,

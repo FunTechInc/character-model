@@ -238,7 +238,7 @@ Usage guidelines. These are requests on top of the license, not extra legal term
 - Welcome: personal and non-commercial work, fan art, study, demos and experiments, posts on social media (with the credit).
 - Please don't present your work as made or endorsed by FunTech, or use Funkun as your own logo or mark.
 - Please don't use Funkun in content that is hateful, violent or sexual, or in political or religious campaigns.
-- Commercial use (goods, advertising, paid products, selling the model or things made from it) needs FunTech's permission: contact us at [funtech.inc](https://funtech.inc/).
+- Commercial use (goods, advertising, paid products, selling the model or things made from it) needs FunTech's permission: contact us at [info@funtech.inc](mailto:info@funtech.inc).
 
 ---
 
